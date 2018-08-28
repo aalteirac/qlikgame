@@ -1,0 +1,44 @@
+{
+  "name": "qlikgame",
+  "version": "1.0.0",
+  "description": "just some fun",
+  "main": "game.js",
+  "scripts": {
+    "start": "live-server . -p=8081 --watch=game.js,index.html,styles.css",
+    "watch": "concurrently --kill-others \"rollup -c --watch\" \"live-server . -p=8081 --watch=dist,index.html,styles.css\"",
+    "lint": "eslint .",
+    "build": "rollup -c",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/aalteirac/qlikgame.git"
+  },
+  "keywords": [
+    "game",
+    "qlik",
+    "phaser.io"
+  ],
+  "author": "Anthony Alteirac",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/aalteirac/qlikgame/issues"
+  },
+  "homepage": "https://github.com/aalteirac/qlikgame#readme",
+  "dependencies": {
+    "babel-core": "^6.26.3",
+    "babel-plugin-external-helpers": "^6.22.0",
+    "babel-preset-es2015": "^6.24.1",
+    "concurrently": "^4.0.1",
+    "live-server": "^1.2.0",
+    "rollup": "^0.65.0",
+    "rollup-plugin-babel": "^4.0.2",
+    "rollup-plugin-node-resolve": "^3.3.0",
+    "rollup-plugin-string": "^2.0.2",
+    "rollup-plugin-terser": "^1.0.1",
+    "rollup-plugin-uglify": "^4.0.0",
+    "rollup-plugin-uglify-es": "0.0.1",
+    "rollup-watch": "^4.3.1",
+    "uglify-es": "^3.3.9"
+  }
+}
