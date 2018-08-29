@@ -1,5 +1,10 @@
 var game;
-
+window.console.log = function(){
+    console.error('Sorry....');
+    window.console.log = function() {
+        return false;
+    }
+  }
 
 var opt = {
     rotSpeed: 3,
@@ -39,7 +44,7 @@ window.onload = function() {
 
     var cfg = {
        type: Phaser.CANVAS,
-       width: 750,
+       width: 1024,
        height: 1334,
 	   backgroundColor: 0x000000,
        scene: [ExtensionGame]
@@ -59,12 +64,18 @@ class ExtensionGame extends Phaser.Scene{
     preload(){
         this.load.image("q", "q.png");
         this.load.image("ext", "ext.png");
+        this.load.image("star", "star.png");
+    }
+    addInput(){
+       
     }
     create(){
+        this.addInput();
 		this.lost = false;
         this.canDrop = true;
         this.extGroup = this.add.group();
         this.extension = this.add.sprite(game.config.width / 2, game.config.height / 5 * 4, "ext");
+        // this.add.sprite(game.config.width / 4, game.config.height / 5, "star");
         this.target = this.add.sprite(game.config.width / 2, 400, "q");
         this.target.depth = 1;
         this.input.on("pointerdown", this.dropExtension, this);
@@ -121,12 +132,12 @@ class ExtensionGame extends Phaser.Scene{
                                 }   
 								var scoreText = this.make.text({
 									x: width / 2,
-									y: height / 2 +50,
+									y: height / 2 +100,
 									text: `You have plugged ${this.score} extension${pl} on Sense... \r\n ...before trying to use an unsupported API...
 									\r\n\r\n\r\nIF TOO MUCH CUSTOM TRY QLIK CORE :-)
 									\r\n\r\n\r\nBEST SCORE: ${bst.replace('@',' ')} extension${numScore>1?'s':''}`,
 									style: {
-										font: '20px monospace',
+										font: '25px monospace',
 										fill: '#ffffff'
 									}
 								});
